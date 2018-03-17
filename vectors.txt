@@ -1,0 +1,27 @@
+GlowScript 2.6 VPython
+########################################
+#   Name:       Jenna Lovett
+########################################
+
+from __future__ import division     ##treats 1/2 as a float value
+from visual import *                ##use 3-D modelling
+
+
+baseball = sphere(pos = vector(-4, -2, 5), radius = 0.40, color = color.red);
+
+tennisball = sphere(pos = vector(3, 1, -2), radius = 0.15, color = color.green);
+
+
+bt = arrow(pos = vector(baseball.pos), axis = vector(tennisball.pos - baseball.pos), color = color.cyan);
+
+t = 0;
+while (t < 10) :
+    t += 0.5;
+    print(t);
+
+print("end of program");
+
+theta = 0;
+while(theta != 2 * pi):
+    theta += (pi)/5;
+    print(theta);
