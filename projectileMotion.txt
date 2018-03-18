@@ -6,21 +6,18 @@ initialVelocity = 24
 Angle = 65
 
 #set up the display window
-scene1 = display(title = "Projectile Motion", 
-		 x = 0, y = 0, width = 800, 
-		 height = 600, range = 10, 
-		 background = color.white, 
-		 center = (10, 10, 0))
+scene1 = display(title = "Projectile Motion", x = 0, y = 0, width = 800, height = 600, range = 10, background = color.white, center = (10, 10, 0))
 
 #Create objects
 #Ball will start on table
 ##ball1 will travel using vectors
 
 table = box(pos = (-1, initialHeight - 1, 0), size = (5, 1, 4))
-ball1 = sphere(pos = (0, initialHeight, 0), radius = 1, 
-	       color = color.green, make_trail = true)
-ball2 = sphere(pos = (0, initialHeight, 0), radius = 1, 
-	       color = color.red make_trail = true)
+
+ball1 = sphere(pos = (0, initialHeight, 0), radius = 1, color = color.green, make_trail = True)
+
+ball2 = sphere(pos = (0, initialHeight, 0), radius = 1, color = color.red, make_trail = True)
+
 floor = box(pos = (0, 0, 0), size = (100, 0.25, 10))
 
 t = 0
@@ -31,24 +28,18 @@ g = -32 #ft/s**2
 Fgrav = vector(0, g*dt, 0)
 
 #velocity vector for ball1
-ball1v = vector(initialVelocity * cos(Angle*pi/180), 
-		initalVelocity*sin(Angle*pi/180), 0)
+ball1v = vector(initialVelocity * cos(Angle*pi/180), initialVelocity*sin(Angle*pi/180), 0)
 
 #puts ball into motion
 while True:
 	rate(300)	#speeds it up
+	
 	ball1v = ball1v + Fgrav
-	ball1.pos += ball1.v*dt
-
-	ball2.pos = (initialVelocity*cos(Angle*pi/180)*t, 
-			initalHeight + initalVelocity*t*sin(Angle*pi/180) - 16*t**2)
+	ball1.pos += ball1v*dt
+	ball2.pos = (initialVelocity*cos(Angle*pi/180)*t, initialHeight + initialVelocity*t*sin(Angle*pi/180) - 16*t**2)
+	
 	if ball1.y < 0: #when ball1 height hits the ground
 	    print "ball1.pos = " , ball1.pos, "t = ", t
 	    print "ball2.pos = " , ball2.pos
 	    break
 	
-
-
-
-
-
