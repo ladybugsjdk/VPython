@@ -6,7 +6,7 @@ initialVelocity = 24
 Angle = 65
 
 #set up the display window
-scene1 = display(title = "Projectile Motion", x = 0, y = 0, width = 800, height = 600, range = 10, background = color.white, center = (10, 10, 0))
+scene1 = display(title = "Projectile Motion", x = 0, y = 0, width = 800, height = 600, range = 10, background = color.white, center = (10, initialHeight, 0))
 
 #Create objects
 #Ball will start on table
@@ -32,7 +32,7 @@ ball1v = vector(initialVelocity * cos(Angle*pi/180), initialVelocity*sin(Angle*p
 
 #puts ball into motion
 while True:
-	rate(300)	#speeds it up
+	rate(1000)	#speeds it up
 	
 	ball1v = ball1v + Fgrav
 	ball1.pos += ball1v*dt
